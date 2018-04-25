@@ -1,0 +1,25 @@
+{
+    "presets": [
+        [
+            "env",
+            {
+                "targets": {
+                    "node": "8.0.0"
+                },
+                "useBuiltIns": true
+            }
+        ],
+        "stage-0"
+    ],
+    "plugins": [
+        "transform-runtime"
+    ],
+    "env": {
+        "test": {
+            "plugins": [
+                "rewire"
+            ]
+        }
+    },
+    "sourceMaps": true
+}
