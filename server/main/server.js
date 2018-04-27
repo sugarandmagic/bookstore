@@ -6,7 +6,7 @@ const router = new Router();
 
 /**
 * Initialises the routes and starts the app
-* @returns {Promise<void>} We dont return anything
+* @returns {Promise<void>}
 */
 const init = async () => {
     console.info('Server has started. Initializing routes.');
