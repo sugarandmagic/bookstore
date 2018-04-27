@@ -1,0 +1,8 @@
+client/node_modules
+server/node_modules
+server/.nyc_output/
+client/dist
+server/dist
+.idea
+server/yarn-error.log
+client/yarn-error.log
