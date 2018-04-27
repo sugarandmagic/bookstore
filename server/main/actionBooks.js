@@ -1,15 +1,15 @@
 import fetch from 'node-fetch';
-import { transformBooksIntoModel, booksFilter } from "./model";
+import { transformBooksIntoModel, booksFilter } from './model';
 
 const allBooksHandler = async () => {
     try {
-      let response = await fetch('https://goo.gl/Lk2MTJ');
-      return response.json();
+        const response = await fetch('https://goo.gl/Lk2MTJ');
+        return response.json();
     } catch (error) {
-      console.error('error: ', error);
-      return {}
+        console.error('error: ', error);
+        return {};
     }
-  };
+};
 
 const actionBooks = async (ctx) => {
     const { params } = ctx;

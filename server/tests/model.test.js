@@ -3,7 +3,7 @@ import {
     isValidOLID,
     booksFilter,
     transformBooksIntoModel,
-} from '../model';
+} from '../main/model';
 import {
     expect,
     it,
