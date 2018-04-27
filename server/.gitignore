@@ -169,6 +169,7 @@ Temporary Items
 
 .nyc_output/
 yarn-error.log
+node_modules/*
 
 
 # End of https://www.gitignore.io/api/osx,node,linux,intellij,visualstudiocode
