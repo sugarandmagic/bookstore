@@ -11,9 +11,11 @@ const books = (state = [], action) => {
 };
 
 const filterBooks = (state = [], action) => action.books;
+const resetBooks = (state) => [];
 
 const mapActionsToReducersFiltered = {
-    'BOOKS_FILTERED_SUCCEEDED': filterBooks
+    'BOOKS_FILTER_SUCCEEDED': filterBooks,
+    'RESET_BOOKS': resetBooks,
 };
 
 const filteredBooks = (state = [], action) => {
