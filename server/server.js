@@ -8,21 +8,21 @@ const isValidOLID = (query) => {
     // return boolean
 }
 
-const booksFilterHandler = (query) => {
+const booksFilterHandler = (query, books) => {
     if (isValidOLID(query)) {
         return {}
-        //filter by OLID
+        //filter books by OLID
     }
     return {}
-    //filter by book title
+    //filter books by title
 }
 
 const allBooksHandler = () => {
     return {}
 }
 
-const transformBooksIntoModel = (data) => {
-    return data;
+const transformBooksIntoModel = (rawBooks) => {
+    return rawBooks;
     // transform the data into the required format
 }
 
@@ -33,11 +33,10 @@ const actionBooks = async (ctx) => {
     data = transformBooksIntoModel(allBooksHandler());
 
     if (query) {
-        data = booksFilterHandler(query, data)
+        data = booksFilterHandler(query, books)
         // call filterHandler and return the filtered items BY OLID or book
     }
     // call booksHandler and return all items tranformed into the required model
-
     if (data) {
         ctx.status = 200;
         ctx.body = data;

@@ -18,15 +18,15 @@ import { books } from './mockData';
 describe('server.js', () => {
     describe('isValidOLID', () => {
         it('returns true if the string passes the check', async (t) => {
-            expect('foo').to.equal('foo');
+            expect(isValidOLID('OL24180216M')).to.equal(true);
         });
         it('returns false if the string does not pass the check', async (t) => {
-            expect('foo').to.equal('foo');
+            expect(isValidOLID('Great Expectations')).to.equal(false);
         });
     });
     describe('booksFilterHandler', () => {
         it('returns book(s) that match the search term', async (t) => {
-            expect('foo').to.equal('foo');
+            expect(booksFilterHandler('')).to.equal('foo');
         });
         it('returns an empty object if there is nothing matching the search term', async (t) => {
             expect('foo').to.equal('foo');
