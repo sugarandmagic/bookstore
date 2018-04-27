@@ -35,10 +35,12 @@ input {
 
 .book {
     list-style: none;
-    /*border: 1px solid black;*/
-    /*width: 250px;*/
     max-width: 250px;
     margin: auto;
+    text-align: center;
+}
+
+.search_info {
     text-align: center;
 }
 
