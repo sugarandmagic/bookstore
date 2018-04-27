@@ -1,6 +1,10 @@
 import fetch from 'node-fetch';
 import { transformBooksIntoModel, booksFilter } from './model';
 
+/**
+ * Action handler to fetch books from API
+ * @returns {Promise<*>} Books JSON or empty object
+ */
 const allBooksHandler = async () => {
     try {
         const response = await fetch('https://goo.gl/Lk2MTJ');
@@ -11,10 +15,14 @@ const allBooksHandler = async () => {
     }
 };
 
+/**
+ * Action for /books endpoint
+ * @param {*} ctx Koa context object
+ * @returns {Promise<void>}
+ */
 const actionBooks = async (ctx) => {
     const { params } = ctx;
     const { term } = params;
-
 
     const rawBooks = await allBooksHandler();
     const books = transformBooksIntoModel(rawBooks);
