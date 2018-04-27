@@ -4,6 +4,10 @@ import fetch from 'node-fetch';
 
 const url = 'http://localhost:3000/books';
 
+/**
+ * fetchBooks
+ * @returns {Promise<*>}
+ */
 const fetchBooks = async () => {
     try {
         const res = await fetch(url);
@@ -13,6 +17,11 @@ const fetchBooks = async () => {
     }
 };
 
+/**
+ * fetchFilteredBooks
+ * @param term Search term
+ * @returns {Promise<*>}
+ */
 const fetchFilteredBooks = async (term) => {
     try {
         const res = await fetch(`${url}/${term}`);
@@ -22,6 +31,10 @@ const fetchFilteredBooks = async (term) => {
     }
 };
 
+/**
+ * geBooks
+ * @returns {IterableIterator<*>}
+ */
 function* getBooks() {
     try {
         const books = yield call(fetchBooks);
@@ -29,8 +42,13 @@ function* getBooks() {
     } catch (e) {
         yield put({type: 'BOOKS_FETCH_FAILED', message: e.message});
     }
-}
+};
 
+/**
+ * getFilteredBooks
+ * @param action Redux action
+ * @returns {IterableIterator<*>}
+ */
 function* getFilteredBooks(action) {
     try {
         const books = yield call(fetchFilteredBooks, action.term);
@@ -41,12 +59,17 @@ function* getFilteredBooks(action) {
 }
 
 /**
- * Watch function for saga
+ * Watch function for getBooks
+ * @returns {IterableIterator<ForkEffect | *>}
  */
 function* getBooksSaga() {
     yield takeLatest('BOOKS_FETCH_REQUESTED', getBooks);
 }
 
+/**
+ * Watch function for getFilteredBooks
+ * @returns {IterableIterator<*|ForkEffect>}
+ */
 function* getFilteredBooksSaga() {
     yield takeLatest('BOOKS_FILTER_REQUESTED', getFilteredBooks);
 }

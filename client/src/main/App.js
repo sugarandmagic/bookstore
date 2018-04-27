@@ -15,6 +15,9 @@ const mapDispatchToProps = {
     resetBooks,
 };
 
+/**
+ * App component
+ */
 class App extends Component {
     constructor() {
         super();
@@ -66,6 +69,12 @@ export default connect(
     mapDispatchToProps
 )(App);
 
+/**
+ *
+ * @param props
+ * @returns {*}
+ * @constructor
+ */
 const Book = props => (
     <div className='book'>
         <div className='book_title'>{props.book.title}</div>
@@ -75,5 +84,11 @@ const Book = props => (
     </div>
 );
 
+/**
+ *
+ * @param props
+ * @returns {string}
+ * @constructor
+ */
 const Info = (props) => (props.filteredBooks.length > 0) ?
     (<div className='search_info'>Found { props.filteredBooks.length } results for search '{props.term}'</div>) : '';
