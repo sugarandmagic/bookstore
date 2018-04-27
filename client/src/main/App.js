@@ -24,7 +24,9 @@ class App extends Component {
 
     handleSubmit(e){
         this.props.filterBooks(this.term.value);
+        this.setState({term: this.term.value});
         e.preventDefault();
+        this.term.value = ''
     }
 
     handleReset(e){
@@ -36,21 +38,24 @@ class App extends Component {
         if (this.props.books.length <= 0) {
             this.props.fetchBooks();
         }
+        this.setState({term: ''});
     }
 
     render() {
+        const term = (this.state.term) ? this.state.term : '';
         const { books, filteredBooks } = this.props;
         const bookItems = (filteredBooks.length > 0) ? filteredBooks : books;
         const bookCards = bookItems.map(
             (book, index) =>
                 <Book book={book} key={index} />);
         return <div className="container">
-            <div className="app-header"><h1 className="app-title">BOOK STORE</h1></div>
+            <div className="app-header"><h1 className="app-title">90s BOOK STORE</h1></div>
             <form>
                 <input type="text" placeholder="search by title or OLID" ref={el => this.term = el}/>
                 <input type="submit" value="Submit" onClick={this.handleSubmit}/>
                 <input type="submit" value="Reset" onClick={this.handleReset}/>
             </form>
+            <Info filteredBooks={filteredBooks} term={term} />
             <div className="books">{bookCards}</div>
         </div>;
     }
@@ -69,3 +74,6 @@ const Book = props => (
         <img className='book_cover' src={props.book.cover} alt="book cover"/>
     </div>
 );
+
+const Info = (props) => (props.filteredBooks.length > 0) ?
+    (<div className='search_info'>Found { props.filteredBooks.length } results for search '{props.term}'</div>) : '';
