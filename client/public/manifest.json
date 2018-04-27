@@ -1,0 +1,8 @@
+{
+  "short_name": "90sBookstore",
+  "name": "Bookstore from the 90s",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
