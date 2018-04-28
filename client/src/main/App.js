@@ -29,7 +29,7 @@ class App extends Component {
         this.props.filterBooks(this.term.value);
         this.setState({term: this.term.value});
         e.preventDefault();
-        this.term.value = ''
+        this.term.value = '';
     }
 
     handleReset(e){
@@ -55,8 +55,8 @@ class App extends Component {
             <div className="app-header"><h1 className="app-title">90s BOOK STORE</h1></div>
             <form>
                 <input type="text" placeholder="search by title or OLID" ref={el => this.term = el}/>
-                <input type="submit" value="Submit" onClick={this.handleSubmit}/>
-                <input type="submit" value="Reset" onClick={this.handleReset}/>
+                <input className="submit_button" type="submit" value="Submit" onClick={this.handleSubmit}/>
+                <input className="reset_button" type="submit" value="Reset" onClick={this.handleReset}/>
             </form>
             <Info filteredBooks={filteredBooks} term={term} />
             <div className="books">{bookCards}</div>
