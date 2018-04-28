@@ -1,4 +1,4 @@
-//external modules
+/* eslint no-console: 0 */  // --> OFF
 import { call, put, takeLatest } from 'redux-saga/effects';
 import fetch from 'node-fetch';
 
@@ -42,7 +42,7 @@ function* getBooks() {
     } catch (e) {
         yield put({type: 'BOOKS_FETCH_FAILED', message: e.message});
     }
-};
+}
 
 /**
  * getFilteredBooks
@@ -51,8 +51,8 @@ function* getBooks() {
  */
 function* getFilteredBooks(action) {
     try {
-        const books = yield call(fetchFilteredBooks, action.term);
-        yield put({type: 'BOOKS_FILTER_SUCCEEDED', books: books});
+        const filteredBooks = yield call(fetchFilteredBooks, action.term);
+        yield put({type: 'BOOKS_FILTER_SUCCEEDED', filteredBooks: filteredBooks});
     } catch (e) {
         yield put({type: 'BOOKS_FILTER_FAILED', message: e.message});
     }

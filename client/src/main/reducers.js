@@ -32,14 +32,14 @@ const books = (state = [], action) => {
  * @param {Object} action   Redux action
  * @returns {(function(*=, *=): Array)|*}
  */
-const filterBooks = (state = [], action) => action.books;
+export const filterBooks = (state = [], action) => action.filteredBooks;
 
 /**
  * resetBooks reducer
  * @param {Object} state    Application state
  * @returns {Array}
  */
-const resetBooks = (state = []) => [];
+export const resetBooks = (state = []) => [];
 
 /**
  * Map action types to reducers
