@@ -1,7 +1,7 @@
 client/node_modules
 server/node_modules
 server/.nyc_output/
-client/dist
+client/build
 server/dist
 .idea
 server/yarn-error.log

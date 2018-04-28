@@ -12,9 +12,9 @@
   },
   "scripts": {
     "start-dev": "NODE_ENV=development nodemon --watch 'server.js'",
-    "start": "node ./dist/index.js",
+    "start": "node ./dist/main/server.js",
     "clean": "rm -rf dist/*",
-    "compile": "BABEL_ENV=production babel ./main --out-dir dist --copy-files --source-maps --extensions \".js\" --ignore \"tests/**\"",
+    "compile": "BABEL_ENV=production babel ./main --out-dir dist/main --copy-files --source-maps --extensions \".js\" --ignore \"tests/**\"",
     "lint": "./node_modules/.bin/eslint main  --fix",
     "mocha": "BABEL_ENV=test nyc mocha --require ./tests/index.js 'tests/*.test.js'",
     "pretest": "yarn clean lint",

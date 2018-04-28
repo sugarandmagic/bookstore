@@ -2,7 +2,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import fetch from 'node-fetch';
 
-const url = 'http://localhost:3000/books';
+const url = 'http://localhost/books';
 
 /**
  * fetchBooks

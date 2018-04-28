@@ -2,16 +2,15 @@
 
 ## Prereqs
 - Node 8
-- CORS browser extension, e.g https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en
+- Docker
 
 Please find included two directories, `client` and `server`.
 
-##To run this locally:
+## To run this locally:
 
-Enable the CORS browser extension (purely for demonstration purposes as no time to do proxy config)
-
-1. `yarn` inside the `server` directory and then run `yarn start-dev`. This starts the API on `localhost:3000`
-2. `yarn` inside the `client` directory and run `yarn start` and choose a port
+1. `yarn` inside the `client` directory and run `yarn build`
+2. Run `docker-compose up` inside the root directory
+3. Navigate to [localhost](http://localhost)
 
 The client can then be interacted with.
 
@@ -26,6 +25,3 @@ some config refinement to get right
 - OLID matching is exact
 - Filtering requests are handled on the server side by making a call to the Books API with the given search term
 - Each time the page is rendered or books are filtered, a fresh copy of the books data is fetched
-
-##Caveats:
-- Ran out of time to make this production ready so only local-dev mode provided
